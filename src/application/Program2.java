@@ -26,11 +26,22 @@ public class Program2 {
 		for (Department o: list) {
 			System.out.println(o);
 		}
-		System.out.println(" \n ===== TEST 4: Department Insert ===== ");
+		System.out.println(" \n ===== TEST 3: Department Insert ===== ");
 		Department newDep = new Department(null,"Peças");
 		departmentDao.insert(newDep);
 		System.out.println("Inserted! New id = " + newDep.getId());
 		
+		System.out.println(" \n ===== TEST 4: Department Update ===== ");
+		department = departmentDao.findById(6);
+		department.setName("Bebida");
+		departmentDao.update(department);
+		System.out.println("UpDate Completed ");
+		
+		System.out.println(" \n ===== TEST 5: Department delete ===== ");
+		System.out.println("Enter id for delete test: ");
+		int id = sc.nextInt();
+		departmentDao.deleteById(id);
+		System.out.println("Delete Completed");
 		sc.close();
 
 	}
